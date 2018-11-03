@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  nginx:
+    build: docker/nginx
+    ports:
+      - 8000:80
+    volumes:
+      - ./public:/hakoniwa/public
+
+  app:
+    build:
+      dockerfile: docker/app/Dockerfile
+      context: .
+    volumes:
+      - .:/hakoniwa

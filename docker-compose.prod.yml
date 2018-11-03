@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  nginx:
+    build: docker/nginx
+    ports:
+      - 8000:80
+    volumes_from:
+      - app
+
+  app:
+    build:
+      dockerfile: docker/app/Dockerfile.prod
+      context: .
+    volumes:
+      - logs:/hakoniwa/logs
+
+volumes:
+  logs:
