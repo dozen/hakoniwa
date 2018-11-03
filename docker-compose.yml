@@ -3,6 +3,8 @@ version: '2'
 services:
   nginx:
     build: docker/nginx
+    environment:
+      TZ: Asia/Tokyo
     ports:
       - 8000:80
     volumes:
@@ -12,5 +14,7 @@ services:
     build:
       dockerfile: docker/app/Dockerfile
       context: .
+    environment:
+      TZ: Asia/Tokyo
     volumes:
       - .:/hakoniwa
