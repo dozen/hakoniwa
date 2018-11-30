@@ -9,4 +9,8 @@ RUN docker-php-ext-install -j$(nproc) opcache zip
 
 COPY . /hakoniwa
 
+WORKDIR /hakoniwa
+
+RUN bin/composer install
+
 VOLUME /hakoniwa/public
