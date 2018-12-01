@@ -7,7 +7,9 @@ RUN apt-get update && apt-get install -y \
 
 RUN docker-php-ext-install -j$(nproc) opcache zip
 
-COPY . /hakoniwa
+USER www-data
+
+COPY --chown=www-data:www-data . /hakoniwa
 
 WORKDIR /hakoniwa
 
